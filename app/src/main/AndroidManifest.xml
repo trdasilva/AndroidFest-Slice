@@ -9,23 +9,46 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+        <activity android:name=".MainActivity">
+            <meta-data
+                    android:name="android.metadata.SLICE_URI"
+                    android:value="content://br.com.tomaz.androidfest_slice/rowSlice"/>
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="androidx.intent.SLICE_ACTION" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.app.slice.category.SLICE" />
+                <data
+                        android:host="androidfest_slice.tomaz.com.br"
+                        android:scheme="http"
+                        android:pathPrefix="/headerSlice"
+                />
             </intent-filter>
         </activity>
 
         <provider
                 android:name=".SliceProviderExample"
                 android:authorities="br.com.tomaz.androidfest_slice"
-                android:exported="true">
+                android:exported="true"
+                android:grantUriPermissions="true">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.app.slice.category.SLICE"/>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="androidx.intent.SLICE_ACTION" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.app.slice.category.SLICE" />
                 <data
-                        android:host="tomaz.com.br"
+                        android:host="androidfest_slice.tomaz.com.br"
                         android:scheme="http"/>
             </intent-filter>
         </provider>

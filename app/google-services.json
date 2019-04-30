@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "295748908024",
+    "firebase_url": "https://androidfestslice.firebaseio.com",
+    "project_id": "androidfestslice",
+    "storage_bucket": "androidfestslice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295748908024:android:db1e12b6aa3832c1",
+        "android_client_info": {
+          "package_name": "br.com.tomaz.androidfest_slice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295748908024-nov902v2u72kfp5ifdcq038ukgosg334.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.tomaz.androidfest_slice",
+            "certificate_hash": "20f65f84a384a64f268b528564a89133c08915de"
+          }
+        },
+        {
+          "client_id": "295748908024-d14em04l13s08bogj3favddtbbjgtk39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAadKoK5CAecqSqbjcxdHR7tWdWU6zPCJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295748908024-d14em04l13s08bogj3favddtbbjgtk39.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

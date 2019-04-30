@@ -1,6 +1,9 @@
 package br.com.tomaz.androidfest_slice
 
+import android.content.ContentResolver
+import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import androidx.slice.Slice
 import androidx.slice.SliceProvider
 import br.com.tomaz.androidfest_slice.sliceTemplates.*
@@ -23,5 +26,25 @@ class SliceProviderExample : SliceProvider() {
             sliceUri.path == "/delayedSlice" -> ContentDelayedSliceBuilder.build(context, sliceUri)
             else -> ErrorSliceBuilder.build(context, sliceUri)
         }
+    }
+
+    override fun onMapIntentToUri(intent: Intent): Uri {
+
+        val intentPath = intent?.data?.path ?: "/"
+        val uriWithoutPathSlash = intentPath.replace("/", "")
+
+        val uri = buildUriWithAuthority(uriWithoutPathSlash)
+
+        Log.d("SliceProvider", "onMapIntentToUri(): \nintentPath: $intentPath \nuri:$uri")
+
+        return uri
+    }
+
+    private fun buildUriWithAuthority(path: String): Uri {
+        return Uri.Builder()
+            .scheme(ContentResolver.SCHEME_CONTENT)
+            .authority(context.packageName)
+            .appendPath(path)
+            .build()
     }
 }
